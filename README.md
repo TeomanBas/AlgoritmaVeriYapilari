@@ -415,3 +415,13 @@ for i in range(0,n):
     - Divide and Conquer Algorithms
     - Towers of Hanoi
     - Backtracking Algorithms
+
+## Dizi
+- En temel veri yapılarından biridir.
+- Dizi elemanlarına erişmek üzere genellikle sıfır-tabanlı indisleme(zero-base indexing) kullanılır.
+- Tek boyutlu (single-dimension) yada çok boyutlu (multi-dimension) olabilir.
+- Düzenli (regular) yada düzensiz (jagged) olarak tanımlanabilir.
+- En büyük dezavantajı sabit boyutlu olmasıdır.
+- Dizinin sabit boyutlu olmasından dolayı ekleme ve silme gibi işlemlerin maliyeti artar.
+- En büyük avantajı ise bellek gözlerine doğrudan erişimin olmasıdır.
+
