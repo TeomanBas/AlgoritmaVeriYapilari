@@ -1,6 +1,6 @@
 ﻿namespace DataStructures
 {
-    internal class DataStructures
+    public class DataStructures
     {
         private static void Main(string[] args)
         {

@@ -1,9 +1,11 @@
 ﻿using System.Collections;
+using System.Threading.Channels;
 using DataStructures;
 internal class Program
 {
     private static void Main(string[] args)
     {
+        /*
         // char dizisi tanımlama // fixed size
         var arrChar = new char[2] { 'a', 'b' };
 
@@ -28,5 +30,116 @@ internal class Program
         // aşağıda cast işlemi yapmadan dizi elemenını int olarak alabildik.
         var d = (arrListInt[0] + 20);
 
+        */
+
+        // --------------------------------------------------------------------------------------------------------------
+        /*
+        var arr = new DataStructures.Array.Array<int>();
+        Console.WriteLine($"{arr.Count} / {arr.Capacity}");
+        arr.Add( 1 );
+        arr.Add( 2 );
+        Console.WriteLine($"{arr.Count} / {arr.Capacity}");
+        Console.WriteLine("-----");
+        arr.Add( 3 );
+        arr.Add( 4 );
+        Console.WriteLine($"{arr.Count} / {arr.Capacity}");
+        arr.Add(5);
+        arr.Add(6);
+        Console.WriteLine($"{arr.Count} / {arr.Capacity}");
+        arr.Remove();
+        Console.WriteLine($"{arr.Count} / {arr.Capacity}");
+        Console.WriteLine("------");
+        foreach ( var item in arr)
+        {
+            Console.WriteLine(item);
+        }
+        Console.WriteLine("------");
+        // linq sorguları
+        arr.Where(x => x % 2 == 00).ToList().ForEach(x => Console.WriteLine(x));
+
+        /*
+        var arr = new DataStructures.Array.Array<int>(11, 22, 3, 44, 66);
+        foreach (var item in arr)
+        {
+            Console.WriteLine(item);
+        }
+        Console.WriteLine("----------");
+        var p1 = new DataStructures.Array.Array<int>(1, 2, 3, 4);
+        var p2 = new int[] { 11, 22, 33, 44 };
+        var p3 = new List<int>() { 5, 15, 20, 25 };
+        var p4 = new ArrayList() { 122, 133, 1444, 1555 };
+        // Generic tipler için IEnumerable GetEnumarable ı garanti ettiği için kullanabildik.
+        var arrp1 = new DataStructures.Array.Array<int>(p1);
+        foreach (var item in arrp1)
+        {
+            Console.WriteLine(item);
+        }
+        Console.WriteLine("----------");
+        var arrp2 = new DataStructures.Array.Array<int>(p2);
+        foreach (var item in arrp2)
+        {
+            Console.WriteLine(item);
+        }
+        Console.WriteLine("----------");
+
+        var arrp3 = new DataStructures.Array.Array<int>(p3);
+        foreach (var item in arrp3)
+        {
+            Console.WriteLine(item);
+        }
+        Console.WriteLine("----------");
+
+        // ArrayList obje döndürür ve unboxing işlemi gerektirir bunu ArrayList için yapamıyoruz
+       
+        var arrp4 = new DataStructures.Array.Array<int>(p4);
+        foreach (var item in arrp4)
+        {
+            Console.WriteLine(item);
+        }
+        
+
+        Console.WriteLine("------------------------------------------");
+        Console.WriteLine("Dizi büyümesi ve küçülmesi");
+        var arr = new DataStructures.Array.Array<int>(0);
+
+
+        for (int i = 0; i < 129; i++)
+        {
+            arr.Add(i+1);
+            Console.WriteLine($"{arr.Count} / {arr.Capacity}");
+
+        }
+        Console.WriteLine("---------");
+        for (int i = arr.Count; i > 0; i--)
+        {
+            arr.Remove();
+            Console.WriteLine($"{arr.Count} / {arr.Capacity}");
+
+        }
+        */
+        var arr = new DataStructures.Array.Array<int>(1, 2, 3, 4);
+        // as deyimi ile cast ile işlemi yapar gibi obje döndüren bir nesneyi unboxing edilmesi gerekir.
+        var cpyarr = arr.Clone() as DataStructures.Array.Array<int>;
+        foreach (var item in arr)
+        {
+            Console.WriteLine(item);
+        }
+        Console.WriteLine("-------");
+        foreach (var item in cpyarr)
+        {
+            Console.WriteLine(item);
+        }
+        arr.Add(111);
+        cpyarr.Add(333);
+        Console.WriteLine("----ekleme işlemi sonrası---");
+        foreach (var item in arr)
+        {
+            Console.WriteLine(item);
+        }
+        Console.WriteLine("-------");
+        foreach (var item in cpyarr)
+        {
+            Console.WriteLine(item);
+        }
     }
 }

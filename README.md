@@ -426,3 +426,49 @@ for i in range(0,n):
 - Dizinin sabit boyutlu olmasından dolayı ekleme ve silme gibi işlemlerin maliyeti artar.
 - En büyük avantajı ise bellek gözlerine doğrudan erişimin olmasıdır.
 
+## Koleksiyonlar (Collections)
+Bir grup nesnenin organize şekilde yönetildiği yapılar Collections olarak ifade edilebilir.Bu yapılarda ilgili veri yapısına ekleme yapma araya ekleme yapma arama,sıralama yada özel birtakım fonksiyonlar içerir.Collections ifadeleri generic yada non-generic olarak tanımlanabilirler.
+Array, en çok sabit sayıda güçlü biçimde yazılmış nesneler oluşturmak ve bunlarla çalışmak için kullanışlıdır.
+
+Collections nesne gruplarıyla çalışmak için daha esnek bir yol sağlar.Dizilerden farklı olarak,birlikte çalıştığınız nesne grubu uygulamanın ihtiyaçları değiştikçe dinamik olarak büyüyebilir ve küçülebilir.(growing and shringking)
+
+Bazı koleksiyonlarda, koleksiyona eklediğiniz herhangi bir nesneye bir anahtar atayabilirsiniz böylece anahtarı kullanarak nesneyi hızlı bir şekilde alabilirsiniz.
+`<TKey,TValue>`
+
+**System.Collections**
+- *ArrayList*, *Hashtable*, *Queue*, *Stack*,
+
+**System.Collections.Generic**
+- *Dictionary< TKey,TValue >*, *List< T >*, *Queue< T >*, *SortedList< TKey,TValue >*, *Stack< T >*, *SortedSet < TKey,TValue >*, *HashSet < TKey,TValue >*
+
+**System.Collections.Concurrent**
+
+**System.Collections.Specialized**
+
+**System.Collections.Immutable**
+
+- Koleksiyonu numaralandırma yeteneği 
+    - **System.Collections.IEnumerable**(Objeye bağlı) veya **System.Collections.Generic.IEnumerable< T >**(Generic yapı var ise)
+
+- Bir Enumerator, koleksiyondaki herhangi bir öğeye taşınabilir bir işaretçi olarak düşünülebilir.
+
+- Bir **foreach** döngüsü **GetEnummerator** metodu kullanarak taşınabilir işaretçi yardımıyla koleksiyondaki öğeler üzerine dolaşabilir.
+
+- **System.Collections.Generic.IEnumerable < T >** sorgulanabilir bir tip olarak düşünülebilir ve **LINQ** ifadeleriyle sorgulanabilir.
+
+- LINQ sorguları,verilere erişim için ortak bir model sağlar.
+
+- LINQ filtreleme sıralama gruplama yetenekleriyle veri erişim performasın artırır.
+
+- **Koleksiyon içeriğini bir diziye kopyalama yeteneği** 
+    - Tüm koleksiyonlar CopyTo yöntemi kullanılarak bir diziye kopyalanabilir; ancak yeni dizideki öğelerin sırası numaralandırıcının onları döndürdüğü sıraya bağlıdır.
+
+- **Capacity and Count Propert**
+    - Bir koleksiyonun kapasitesi içerebileceği öğe sayısıdır.Bir koleksiyon için Count aslında içerdiği öğelerin sayısıdır.Bazı koleksiyonlar Capacity veya Count veya her ikisini birden gizler.
+
+- **Tutarlı bir alt sınır**
+    - Bir koleksiyonun alt sınırı ilk öğesinin dizinidir.System.Collections ad alanlarındaki tüm dizinlenmiş koleksiyonların alt sınırı sıfırdır, yani 0 dizinlidir.
+
+- **Birden çok iş parçacığından erişim için senkronizasyon**
+    - System.Collections ad alanındaki genel olmayan koleksiyon türleri senkronizasyonla birlikte bazı iş parçacığı günveliği sağlar; genellikle SyncRoot ve IsSynchronized üyeler aracılığıyla gösterilir.
+ 
