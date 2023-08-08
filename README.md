@@ -472,3 +472,51 @@ Bazı koleksiyonlarda, koleksiyona eklediğiniz herhangi bir nesneye bir anahtar
 - **Birden çok iş parçacığından erişim için senkronizasyon**
     - System.Collections ad alanındaki genel olmayan koleksiyon türleri senkronizasyonla birlikte bazı iş parçacığı günveliği sağlar; genellikle SyncRoot ve IsSynchronized üyeler aracılığıyla gösterilir.
  
+## BAĞLI LİSTELER (LINKED LIST)
+1. Bağlı liste nedir?
+    - içindeki elemanların doğrusal olarak düzenlendiği veri yapısıdır.
+    - dizilere benzer bir yapısı vardır ancak içindeki elemanlara ulaşma yaklaşımı ile dizilerden ayrılmaktadır.
+    - Dizilerde elemanlara ulaşmak için indisler kullanılırken; bağlı listelerde işaretçiler kullanılır.
+    - İlgili veri türlerinin bir araya getirilmesiyle bir bağlı liste yapısı oluşturulabilir.
+2. Bağlı liste soyut veri türü
+    1. Bağlı liste İşlevleri(main linked lists operations)
+        - Insert:listeye eleman ekleme
+        - Delete : listeden eleman silme
+    2. Yarcımcı Bağlı Liste İşlevleri(auxiliary linked lists operations)
+        - Delete List:Listedeki tüm elemanları siler ve listeyi yok eder.
+        - count: Listedeki eleman sayısını döner
+        - Listedeki bir düğümü işaret eder.
+4. Bağlı listelerin dizi ve dinamik diziler iyi kıyaslanması
+    1. Diziler
+        - **Avantaj**
+            - Basit ve kullanımı kolay
+            - Elemanlara doğrudan erişim imkanı sunar.
+        - **Dezavantajları**
+            - Önceden bellek tahsisi ve dizideki boş elemanları için belleğin işgal edilmesi 
+            - sabit boyutlu
+            - bir blok tahsisi(one block allocation)
+            - Konuma dayalı karmaşık ekleme (complex position-based insertion)
+    2. Bağlı Listeler
+        - **Avantajları**
+            - Bağlı liste sabit zamanda genişletilebilir.
+            - Önceden bellek tahsisini engeller.
+        - **Dezavantajları**
+            - Erişim zamanı(access time )
+            - En kötü durumda bir elemana erişmenin maliyeti
+5. Singly Linked List
+    - Liste başına ekleme yapma
+        - Yeni düğümün ileri işaretçisi mevcut kök düğümü (head) işaret edecek şekilde güncellenir.
+        - Yeni düğüm,kök düğüm (head) olarak işaretlenir.
+    - Kuyruğa ekleme(liste sonuna) ekleme yapma
+        - ileri işaretçisi null olan yeni düğüm eklenir.
+        - Son düğümün işaretçisi yeni düğümü gösterecek şekilde güncellenir.
+    - Araya ekleme yapma
+        - Ekleme yapılacak pozisyondan önceki eleman(Prev) bulunur.
+        - Yeni düğümün işaretçisi (newNode.Next = prev.Next) güncellenir.
+        - Dahasonra önceli düğümün işaretçisi (Prev.Next = new Node) güncellenir.
+6. Doubly Linked List
+7. Diğer
+    1. Circular linked list
+    2. Hafıza-Verimli çift yönlü bağlı listeler
+    3. Unrolled Linked List
+    4. Skip List

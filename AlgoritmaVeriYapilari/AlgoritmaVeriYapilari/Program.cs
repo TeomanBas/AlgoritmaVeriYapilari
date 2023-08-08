@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Threading.Channels;
 using DataStructures;
+using DataStructures.LinkedList.SinglyLinkedList;
+
 internal class Program
 {
     private static void Main(string[] args)
@@ -116,7 +118,7 @@ internal class Program
             Console.WriteLine($"{arr.Count} / {arr.Capacity}");
 
         }
-        */
+        
         var arr = new DataStructures.Array.Array<int>(1, 2, 3, 4);
         // as deyimi ile cast ile işlemi yapar gibi obje döndüren bir nesneyi unboxing edilmesi gerekir.
         var cpyarr = arr.Clone() as DataStructures.Array.Array<int>;
@@ -141,5 +143,41 @@ internal class Program
         {
             Console.WriteLine(item);
         }
+        */
+        // --------------------------------------------------------------------------------------------------------------
+        // LINKED LIST (BAĞLI LİSTELER)
+        // 
+        var linkedlist = new SinglyLinkedList<int>();
+        linkedlist.AddFirst(1);
+        linkedlist.AddFirst(2);
+        linkedlist.AddFirst(3);
+        // 3 2 1
+
+        linkedlist.AddLast(4);
+        // 3 2 1 4
+
+        linkedlist.AddAfter(linkedlist.Head.Next,32);
+        // 3 2 32 1 4 
+
+        linkedlist.AddBefore(linkedlist.Head.Next,33);
+        // 3 33 2 32 1 4 
+
+        var linkedlist1 = new SinglyLinkedList<int>();
+        linkedlist1.AddFirst(11111);
+        linkedlist1.AddFirst(22222);
+        linkedlist1.AddFirst(33333);
+        var linkedlist2 = new SinglyLinkedList<int>();
+        linkedlist2.AddFirst(99999);
+        linkedlist2.AddFirst(88888);
+        linkedlist2.AddFirst(77777);
+
+        linkedlist.AddBefore(linkedlist.Head.Next, linkedlist1.Head);
+        linkedlist.AddAfter(linkedlist.Head.Next, linkedlist2.Head);
+
+
+
+
+
+        Console.ReadKey();
     }
 }
