@@ -8,11 +8,12 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DataStructures.LinkedList.SinglyLinkedList.SinglyLinkedList&lt;T&gt;">
-    <Position X="5.25" Y="0.75" Width="1.5" />
+    <Position X="4.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAABAAAAAAAIAAAAAAIAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AACAABAAAAAAAJAAAAAAIAAIAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>LinkedList\SinglyLinkedList\SinglyLinkedList.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

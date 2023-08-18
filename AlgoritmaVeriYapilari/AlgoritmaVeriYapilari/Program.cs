@@ -143,7 +143,7 @@ internal class Program
         {
             Console.WriteLine(item);
         }
-        */
+        
         // --------------------------------------------------------------------------------------------------------------
         // LINKED LIST (BAĞLI LİSTELER)
         // 
@@ -172,8 +172,18 @@ internal class Program
         linkedlist2.AddFirst(77777);
 
         linkedlist.AddBefore(linkedlist.Head.Next, linkedlist1.Head);
-        linkedlist.AddAfter(linkedlist.Head.Next, linkedlist2.Head);
-
+        linkedlist.AddAfter(linkedlist.Head.Next, linkedlist2.Head);*/
+        //
+        // IEnumarable<T> interface inin implementasyonu
+        //
+        var linkedlist = new SinglyLinkedList<int>();
+        linkedlist.AddFirst(1);
+        linkedlist.AddFirst(2);
+        linkedlist.AddFirst(3);
+        foreach ( var item in linkedlist)
+        {
+            Console.WriteLine(item);
+        }
 
 
 
