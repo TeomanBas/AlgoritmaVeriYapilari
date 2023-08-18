@@ -12,6 +12,13 @@ namespace DataStructures.LinkedList.SinglyLinkedList
     {
         public SinglyLinkedListNode<T> Head { get; set; }
         private bool isHeadNull => Head == null;
+        public SinglyLinkedList(IEnumerable<T> collection)
+        {
+            foreach(var item in collection)
+            {
+                this.AddLast(item);
+            }
+        }
         public void AddFirst(T value)
         {
             var newNode = new SinglyLinkedListNode<T>(value);

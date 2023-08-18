@@ -172,7 +172,8 @@ internal class Program
         linkedlist2.AddFirst(77777);
 
         linkedlist.AddBefore(linkedlist.Head.Next, linkedlist1.Head);
-        linkedlist.AddAfter(linkedlist.Head.Next, linkedlist2.Head);*/
+        linkedlist.AddAfter(linkedlist.Head.Next, linkedlist2.Head);
+        // --------------------------------------------------------------------------------------------------------------
         //
         // IEnumarable<T> interface inin implementasyonu
         //
@@ -184,9 +185,19 @@ internal class Program
         {
             Console.WriteLine(item);
         }
+        */
+        // IEnumerable için yapılandırıcı metod tasarımı
+        var arr = new char[] { 'a', 'b', 'c' };
+        var arrList = new ArrayList(arr);
+        var list = new List<char>(arr);
+        var clinkedlist = new LinkedList<char>(arr);
 
-
-
+        var linkedlist = new SinglyLinkedList<char>(arr);
+        list.AddRange(new char[] { 'd', 'e', 'f' });
+        foreach (var item in linkedlist)
+        {
+            Console.WriteLine(item);
+        }
 
         Console.ReadKey();
     }
