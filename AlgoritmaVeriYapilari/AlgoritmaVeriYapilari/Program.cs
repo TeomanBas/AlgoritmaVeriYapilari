@@ -185,7 +185,7 @@ internal class Program
         {
             Console.WriteLine(item);
         }
-        */
+        
         // IEnumerable için yapılandırıcı metod tasarımı
         var arr = new char[] { 'a', 'b', 'c' };
         var arrList = new ArrayList(arr);
@@ -197,6 +197,76 @@ internal class Program
         foreach (var item in linkedlist)
         {
             Console.WriteLine(item);
+        }
+        
+
+        //
+        // Linq (Language Integrated Query) ile veri yapıları
+        //
+        // ramdom sayıların oluşturulması
+        Console.WriteLine("random sayıların oluşturulup linkedlist nesnesi içerisine liste olarak alınması");
+        var rnd = new Random();
+        var initial = Enumerable.Range(1,10).OrderBy(i => rnd.Next()).ToList();
+        var linkedlist = new SinglyLinkedList<int>(initial);
+        
+        foreach(var i in initial)
+        {
+            Console.WriteLine(i);
+        }
+        Console.WriteLine("linq sorgusu");
+        // from anahtar sözcüğü link ifadeleri için bir sorgu yazılacağı anlamına gelir.
+        var q = from item in linkedlist
+                where item % 2 == 1
+                select item;
+        foreach (var i in q)
+        {
+            Console.WriteLine(i);
+        }
+        Console.WriteLine("koşul ifadesiyle linq sorgusu");
+        linkedlist.Where(x => x > 5 )
+            .ToList()
+            .ForEach(x => Console.WriteLine(x + " "));
+        */
+
+        //
+        // ilk elemanı silme
+        // 
+        var rnd = new Random();
+        var initial = Enumerable.Range(1, 10).OrderBy(i => rnd.Next()).ToList();
+        var linkedlist = new SinglyLinkedList<int>(initial);
+        foreach (var i in linkedlist)
+        {
+            Console.WriteLine(i);
+        }
+        Console.WriteLine("ilk elemean siliniyor");
+        linkedlist.RemoveFirst();
+        foreach (var i in linkedlist)
+        {
+            Console.WriteLine(i);
+        }
+
+        // son elemanı silme
+        Console.WriteLine("sondan iki eleman siliniyor");
+        Console.WriteLine("{0} has been removed " , linkedlist.RemoveLast());
+        Console.WriteLine("{0} has been removed ", linkedlist.RemoveLast());
+        foreach (var i in linkedlist)
+        {
+            Console.WriteLine(i);
+        }
+
+        // aradan bir düğüm silmek
+        Console.WriteLine("yeni düğüm oluşturuldu.");
+        var linkedlist1 = new SinglyLinkedList<int>(new int[] { 1, 2, 3, 4, 5});
+        foreach (var i in linkedlist1)
+        {
+            Console.WriteLine(i);
+        }
+
+        Console.WriteLine("aradan bir  eleman siliniyor");
+        linkedlist1.Remove(4);
+        foreach (var i in linkedlist1)
+        {
+            Console.WriteLine(i);
         }
 
         Console.ReadKey();

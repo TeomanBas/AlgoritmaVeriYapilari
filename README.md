@@ -514,6 +514,31 @@ Bazı koleksiyonlarda, koleksiyona eklediğiniz herhangi bir nesneye bir anahtar
         - Ekleme yapılacak pozisyondan önceki eleman(Prev) bulunur.
         - Yeni düğümün işaretçisi (newNode.Next = prev.Next) güncellenir.
         - Dahasonra önceli düğümün işaretçisi (Prev.Next = new Node) güncellenir.
+    - Listeyi Dolaşmak (traversing the list)
+        - **Current** ile **Head** referans alınarak gezintiye başlanır.
+        - Düğüm içeriği yazdırılır ve daha sonra **Current!=null** iken çevrime devam edilir.
+        - Null değer ile karşılaşılması durumunda çevrimden çıkılır.
+        - Gezinmenini maliyeti **O(n)**
+        ```c#
+        if(current!=null){ ... }
+        while(current!=null){
+            current = current.Next;
+            ...
+        }
+        ```
+    - İlk düğümü silme(Deleting first node in the singly liked list)
+        - **Head** düğümünün işaretçisi sonraki elemanı gösterecek şekilde güncellenir. <code>head = head.Next;</code>
+    - Son düğümü silme(Deleting first node in the singly liked list)
+        - Liste üzerinde dolaşılır ve liste sonunda elemandan önceki elemanın **(Prev)** tutulması sağlanır.
+        ```c#
+        while(current.Next!=Null){
+            prev=current;
+            current = current.Next;
+        }
+        prev.Next=null;
+        ```
+    - Ara Düğümü Silme(Deleting an intermediate node in the singly liked list)
+        - Silinmek istenen düğümden önceki düğüm **(Prev)** bulunur ve ilgili düğümün işaretçisinin gösterdiği alan silinecek düğümün işaretçisi ile güncellenir.Silinecek eleman yok edilir. <code>Prev.Next = current.Next</code>
 6. Doubly Linked List
 7. Diğer
     1. Circular linked list

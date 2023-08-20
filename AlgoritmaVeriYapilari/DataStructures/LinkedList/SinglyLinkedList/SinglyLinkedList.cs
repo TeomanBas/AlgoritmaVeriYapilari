@@ -151,5 +151,88 @@ namespace DataStructures.LinkedList.SinglyLinkedList
         {
             return GetEnumerator();
         }
+        public T RemoveFirst()
+        {
+            if(isHeadNull)
+            {
+                throw new Exception("Underflow! Nothing to remove.");
+            }
+            var firstValue = Head.Value;
+            Head = Head.Next;
+            return firstValue;
+        }
+        public T RemoveLast()
+        {
+            if (isHeadNull)
+            {
+                throw new Exception("Underflow! Nothing to remove.");
+            }
+            var current = Head;
+            SinglyLinkedListNode<T> prev = null;
+            while (current.Next != null)
+            {
+                prev = current;
+                current = current.Next;
+            }
+            var LastValue = prev.Next.Value;
+            prev.Next = null;
+            return LastValue;
+            
+        }
+
+        public void Remove(T item)
+        {
+            if (isHeadNull)
+            {
+                throw new Exception("Underflow! Nothing to remove.");
+            }
+            if (item == null)
+            {
+                throw new ArgumentException();
+            }
+            var current = Head;
+            SinglyLinkedListNode<T> prev = null;
+            do
+            {
+                if (current.Value.Equals(item))
+                {
+                    // son eleman mı veya tek eleman mı kontrolü
+                    if (current.Next == null)
+                    {
+                        // head silinmek isteniyor
+                        if(prev == null)
+                        {
+                            Head = null;
+                            return;
+                        }
+                        // son eleman
+                        else
+                        {
+                            prev.Next = null;
+                            return;
+                        }
+                    }
+                    // son eleman değilse 
+                    else
+                    {
+                        if(prev== null)
+                        {
+                            Head = Head.Next;
+                            return;
+                        }
+                        // ara düğüm
+                        else
+                        {
+                            prev.Next = current.Next;
+                            return;
+                        }
+                    }
+                }
+                prev= current;
+                current = current.Next;
+            } while (current.Next != null);
+
+            throw new ArgumentException("The value could not be found in the list!");
+        }
     }
 }
