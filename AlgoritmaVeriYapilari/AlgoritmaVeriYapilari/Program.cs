@@ -1,6 +1,8 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Channels;
 using DataStructures;
+using DataStructures.LinkedList.DublyLinkedList;
 using DataStructures.LinkedList.SinglyLinkedList;
 
 internal class Program
@@ -227,7 +229,7 @@ internal class Program
             .ToList()
             .ForEach(x => Console.WriteLine(x + " "));
         */
-
+        /*
         //
         // ilk elemanı silme
         // 
@@ -269,6 +271,36 @@ internal class Program
             Console.WriteLine(i);
         }
 
+
+        */
+
+        ///
+        ///DoublyLinkedList
+        ///
+        /*
+        // Listenin başına ekleme
+        var list = new DoublyLinkedList<int>();
+        list.AddFirst(12);
+        list.AddFirst(13);
+
+        list.AddLast(14);
+
+        list.AddAfter(list.Head.Next, new DoublyLinkedListNode<int>(15));
+
+        foreach (var item in list)
+        {
+            Console.WriteLine(item);
+        }
+        */
+
+        var list = new DoublyLinkedList<char>(new char[] { 'x', 'y', 'z', 'q', 'w' });
+        Console.WriteLine($"{list.RemoveFirst()} : listeden kaldırıldı.");
+        Console.WriteLine($"{list.RemoveLast()} : listeden kaldırıldı.");
+        list.Delete('z');
+        foreach (var item in list)
+        {
+            Console.WriteLine(item);
+        }
         Console.ReadKey();
-    }
+    }das
 }

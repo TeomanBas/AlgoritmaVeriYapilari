@@ -540,6 +540,62 @@ Bazı koleksiyonlarda, koleksiyona eklediğiniz herhangi bir nesneye bir anahtar
     - Ara Düğümü Silme(Deleting an intermediate node in the singly liked list)
         - Silinmek istenen düğümden önceki düğüm **(Prev)** bulunur ve ilgili düğümün işaretçisinin gösterdiği alan silinecek düğümün işaretçisi ile güncellenir.Silinecek eleman yok edilir. <code>Prev.Next = current.Next</code>
 6. Doubly Linked List
+    - Liste Başına ekleme
+        - Sol ve sağ işaretçileri *NULL* olan yeni düğüm oluşturulur.
+        - Yeni düğümün sağ işaretçisi (Next) mevcut kök düğümü işaret edecek şekilde güncellenir.
+        - Mevcut kök düğümün sol işaretçisi (Prev) yeni düğümü işaret edecek şekilde güncellenir.
+        -   ```c#
+            newNode.Next = Head;
+            Head.Prev = newNode;
+            Head = newNode;
+            ```
+
+    - Liste sonuna ekleme
+        - Sol ve sağ işaretçileri *NULL* olan yeni düğüm oluşturulur.
+        - Kuyruğun ileri işaretçisi (Tail.Next = newNode) yeni düğümü işaret eder.
+        - Yeni düğümün önceki işaretçisi (newNode.Prev = Tail) kuyruğu işaret eder.
+        - Kuyruk yeni düğümü işaret (Tail = newNode) eder.
+        -   ```c#
+            Tail.Next = newNode;
+            newNode.Prev = Tail;
+            Tail = newNode;
+            ```
+
+    - Araya ekleme
+        - Öncesi *(Prev)* ve Sonrası *(Next)* işaretçileri *NULL* olan bir düğüm *(newNode)* oluşturulur.
+        - Yeni düğümün önceki işaretçisi;önceki olarak işaretlenen düğümü gösterecek şekilde *(newNode.Prev = prev)* güncellenir.
+        - Önceki düğümün ileri işaretçisi yeni düğümü işaret edecek şekilde güncellenir (prev.Next = newNode)
+        - Yeni düğümden sonra gelen düğümün önceki işaretçisi yeni düğümü işaret edecek şekilde güncellenir.*(newNode.Next.Prev = newNode)*
+        -   ```c#
+            newNode.Next = prev.Next;
+            newNode.Prev = prev;
+            prev.Next = newNode;
+            newNode.Next.Prev = newNode;
+            ```
+
+    - İlk düğümü silme
+        - Referans düğüm güncellenir *(Head = Head.Next)*
+        - Yeni referans düğümün önceki işaretçisi güncellenir. *(Head.Prev = null)*
+        -   ```c#
+            Head = Head.Next;
+            Head.Prev = null;
+            ```
+    
+    - Son düğümü silme
+        - Kuyruğun öncesinkdeki düğümün sonraki işaretçisi *NULL* olarak güncellenir. 
+        -   ```c#
+            Tail.Prev.Next = null;
+            Tail = Tail.Prev;
+            ```
+
+    - Aradaki düğümü silme
+        - Silinecek düğüme kadar gidilir.
+        - Silinecek düğümün ileri işaretçisinin gösterdiği adres; önceki düğümün ileri işaretçisine atanır.
+        - ```c#
+            prev.Next = current.Next;
+            current.Next.Prev= current.Prev;
+            current = null;
+            ```
 7. Diğer
     1. Circular linked list
     2. Hafıza-Verimli çift yönlü bağlı listeler
